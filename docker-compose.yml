@@ -130,7 +130,7 @@ services:
         - CMD
         - curl
         - "-f"
-        - "http://localhost:8080/openmrs/"
+        - "http://localhost:8081/openmrs/"
       timeout: 5s
     networks:
       bahmni:
@@ -195,7 +195,7 @@ services:
         - CMD
         - curl
         - "-f"
-        - "http://localhost:8080/bahmni-reports"
+        - "http://localhost:8081/bahmni-reports"
     depends_on:
       - postgresql
       - mysql

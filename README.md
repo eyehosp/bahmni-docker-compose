@@ -12,6 +12,7 @@ Docker Compose project to run Bahmni.
 
 ### Download the Docker Compose project:
 
+Note: if this is the first time setting up this environment. Follow these instructions copy and paste them in your command line.
 ```
 export VERSION=1.0.0-SNAPSHOT
 mvn org.apache.maven.plugins:maven-dependency-plugin:3.2.0:get -DremoteRepositories=https://nexus.mekomsolutions.net/repository/maven-public -Dartifact=net.mekomsolutions:bahmni-docker-compose:$VERSION:zip -Dtransitive=false
@@ -57,6 +58,8 @@ docker-compose -p $DISTRO_GROUP up
 
 **Important:** This assumes that you run the `docker` command as the same user and in the same window in which you exported your variables.
 If Docker is run as `sudo`, the variables won't have an effect. Make sure to either export them as root, or run `docker` with `sudo -E` option to preserve the user environment. See [Docker on Linux Post-install steps](https://docs.docker.com/engine/install/linux-postinstall/)
+
+**Resolving errors with ITCP address** When you run **docker-compose up** and the server throws error **Error starting userland proxy: listen tcp 0.0.0.0:8080: bind: address already**. Make sure you kill the process of the running server that uses the same port by using **sudo lsof -i -P -n | grep <port number>** . Then do **sudo kill <process id>** . and run again.
 
 ### Access the servers:
 
